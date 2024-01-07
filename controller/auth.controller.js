@@ -1,5 +1,12 @@
 const { f_insert } = require("../model/master_model")
 
+const home = async (req, res) => {
+    try {
+        res.render("public/home")
+    } catch (error) {
+        res.render("public/home")
+    }
+}
 const register = async (req, res) => {
     try {
         res.render("auth/register")
@@ -39,4 +46,4 @@ const register_post = async (req, res) => {
 
 
 
-module.exports = { register,login, register_post }
+module.exports = { home,register,login, register_post }
