@@ -9,6 +9,15 @@ const register = async (req, res) => {
 }
 
 
+const login = async (req, res) => {
+    try {
+        res.render("auth/login")
+    } catch (error) {
+        res.render("auth/login")
+    }
+}
+
+
 
 const register_post = async (req, res) => {
     try {
@@ -21,7 +30,7 @@ const register_post = async (req, res) => {
             value = `('${name}','${mobile_no}','${password}','${address}','${user_type}','A')`;
         var insertdata = await f_insert(fild, value, 'md_user', null, 0);
         console.log(insertdata)
-        res.redirect("/register")
+        res.redirect("/login")
         console.log(name)
     } catch (error) {
         res.redirect("/register")
@@ -30,4 +39,4 @@ const register_post = async (req, res) => {
 
 
 
-module.exports = { register, register_post }
+module.exports = { register,login, register_post }
