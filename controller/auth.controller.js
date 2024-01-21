@@ -1,4 +1,4 @@
-const { f_insert } = require("../model/master_model")
+const { f_insert, f_select } = require("../model/master_model")
 
 const register = async (req, res) => {
     try {
@@ -39,4 +39,28 @@ const register_post = async (req, res) => {
 
 
 
-module.exports = { register,login, register_post }
+
+const login_post = async (req, res) => {
+    try {
+        let mobile_no = req.body.mobile_no
+        let password = req.body.password
+        let select = `user_id, name, mobile_no, address, user_flag, active_status`,
+            whe = `mobile_no='${mobile_no}' AND password ='${password}'`;
+        var userData = await f_select(select, 'md_user', whe, null);
+        if((userData.msg).length>0){
+            req.session['user']={userData}
+
+            // console.log()
+            res.send(userData);
+        }else{
+            res.redirect("/login")
+        }
+
+    } catch (error) {
+        res.redirect("/login")
+    }
+}
+
+
+
+module.exports = { register, login, register_post ,login_post}
