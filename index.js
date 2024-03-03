@@ -5,6 +5,8 @@ const session = require("express-session")
 const { Admin } = require("./routes/admin.routes");
 const { register, register_post, login, login_post } = require("./controller/auth.controller");
 const { user_info } = require("./controller/test.controller");
+const { User } = require("./routes/user.routes");
+const { check_user } = require("./middleware/auth.middleware");
 
 const port = 3000;
 
@@ -43,6 +45,9 @@ app.post('/login', login_post)
 app.get('/user_info', user_info)
 
 app.post('/register', register_post)
+
+
+app.use("/user",check_user,User)
 
 
 
