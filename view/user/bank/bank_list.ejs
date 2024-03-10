@@ -1,0 +1,33 @@
+<%- include('../common/main_head') %>
+                
+                <div class="container-fluid">
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Bank Name</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <% msg.forEach(function(item,index) { %>
+                        <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= item.bank_name %></td>
+                            <td></td>
+                        </tr>
+
+                        <% }) %>
+                        
+                        </tbody>
+                    </table>
+
+                </div>
+                
+
+
+
+
+    <%- include('../common/main_footer') %>
