@@ -58,12 +58,16 @@ const login_post = async (req, res) => {
             if(await bcrypt.compare(password, userData.msg[0].password)){
 
                 let usertype=userData.msg[0].user_flag
+
+                // console.log("================",usertype)
                 req.session['user']={userData}
+                
                 if(usertype=='U'){
                     console.log(usertype)
                     res.redirect("/user/dashboard")
                 }else if(usertype=='B'){
-                    res.redirect("/")
+                    console.log("===============================",usertype)
+                    res.redirect("/bank/dashboard")
                 }else if(usertype=='A'){
                     res.redirect("/")
                 }

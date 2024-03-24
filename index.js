@@ -7,6 +7,7 @@ const { register, register_post, login, login_post } = require("./controller/aut
 const { user_info } = require("./controller/test.controller");
 const { User } = require("./routes/user.routes");
 const { check_user } = require("./middleware/auth.middleware");
+const { Bank } = require("./routes/bnak.routes");
 
 const port = 3000;
 
@@ -39,6 +40,9 @@ app.use((req, res, next) => {
 
 
 app.use("/admin", Admin)
+app.use("/bank", Bank)
+
+
 app.get('/register', register)
 app.get('/login', login)
 app.post('/login', login_post)

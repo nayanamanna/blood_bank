@@ -1,0 +1,33 @@
+<%- include('../common/main_head') %>
+                
+                <div class="container-fluid">
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Qty</th>
+                            <th>Exp Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <% msg.forEach(function(item,index) { %>
+                        <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= item.qty %></td>
+                            <td><%= item.exp_date %></td>
+                        </tr>
+
+                        <% }) %>
+                        
+                        </tbody>
+                    </table>
+
+                </div>
+                
+
+
+
+
+    <%- include('../common/main_footer') %>
